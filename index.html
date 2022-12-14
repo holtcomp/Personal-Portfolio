@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./resources/css/main.css" />
-    <script src="./resources/js/main.js" defer></script>
+    <script src="./resources/js/main.js" ></script>
     <title>Mark Hunter Personal Portfolio.</title>
 
 </head>
@@ -25,11 +25,31 @@
     <main>
         <section id="about-me">About Me</section>
         <section id="projects">Projects</section>
-        <section id="skills">Skills</section>
+        <section id="skills">Skills
+            <p>
+                Fun fact! I've been programing for
+                <span id="time-container">0</span> seconds!
+              </p>
+        </section>
     </main>
 
     <footer>
 
     </footer>
 </body>
+<script>
+    const timeContainer = document.getElementById("time-container");
+    const BIRTH_DAY = "12-10-1815";
+    const BIRTH_DAY_DATE = new Date(BIRTH_DAY);
+    const intlNumberFormatter = new Intl.NumberFormat("en-US");
+
+    setInterval(() => {
+      const now = new Date();
+      const difference = Math.floor(
+        (now.getTime() - BIRTH_DAY_DATE.getTime()) / 1000
+      );
+
+      timeContainer.innerText = intlNumberFormatter.format(difference);
+    }, 1000);
+  </script>
 </html>
